@@ -231,5 +231,25 @@ because someone else took the last spot first.
   spot-count accuracy (see below).
 
 
+## 7. What I'd change for a real production build
 
+- Replace the demo JWT auth with the organization's actual identity
+  provider and add refresh-token handling.
+- Add a proper payment integration with webhook-verified `PAID` transitions
+  and a refund flow tied to `WITHDRAWN`.
+- Move from polling to a push mechanism (WebSocket/SSE, or a lightweight
+  pub/sub like Redis + Socket.io) for spot-count/status changes on
+  high-demand competitions, so users see "Full" the instant it happens
+  instead of up to 30s later.
+- Add Redis caching in front of `GET /competitions/:id` (short TTL, e.g.
+  2–5s) — at real "thousands of concurrent users" scale this endpoint would
+  otherwise dominate MongoDB read capacity; cache invalidation on
+  join/leave/admin-update would keep it consistent.
+- Add structured logging/metrics (join success/failure rates, time-in-queue
+  for the last-spot race) and integration tests specifically simulating
+  concurrent joins against the last remaining spot.
+- Build out the surrounding screens (competitions list, my-registrations,
+  results/leaderboard detail) and wire real React Navigation instead of the
+  standalone `App.js` demo harness used here.
+- Add image upload/CDN handling for banner images instead of static URLs.
 
