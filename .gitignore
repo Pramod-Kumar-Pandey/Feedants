@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.expo/
+dist/
+
+# Env files
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
