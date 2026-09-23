@@ -5,13 +5,6 @@ backend, with concurrency-safe registration and fully server-derived
 lifecycle state (nothing about "is this open / full / ended" is hardcoded
 or computed on the client).
 
-> **Note on the design reference:** no design file was attached to this
-> assignment brief when I received it, so the screen layout below is my own
-> reasonable interpretation of a typical competition-details screen (banner,
-> status badge, countdown, prize pool, entry fee, spots-left bar, rules,
-> prize breakdown, sticky join CTA). The effort went into making every one
-> of these pieces genuinely dynamic and backend-driven, since that's the
-> actual evaluation focus per the brief.
 
 ---
 
